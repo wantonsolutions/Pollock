@@ -1,9 +1,14 @@
 # This code grabs a bunch of user information from github
 
 require 'metior'
+require 'metior/adapter/octokit'
 
-#Metior.report :git, '~/open-source/metior', './reports/metior'
-#Metior.report :github, 'koraktor/metior', './reports/rails'
 
-Metior.report :git, '~/School/410/rails', './reports/metior'
-#Metior.simple_stats :github, 'rails/rails', './reports/rails'
+#Metior.report :git, '~/School/410/Pollock', './reports/metior'
+#Metior.simple_stats :git, '~/School/410/Pollock'
+
+#Metior.report :github, 'koraktor/metior', './reports/metior'
+
+@repo = Metior::Adapter::Octokit::Repository.new 'koraktor/metior'
+commits = @repo.send :load_commits, ''..'master'
+puts commits
