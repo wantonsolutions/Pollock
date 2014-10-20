@@ -1,14 +1,20 @@
-MAKE = make
+.SUFFIXES: .java .class
 
-all: Pollock.jar
+#compiler
+JC	= javac
 
-Pollock.jar: Pollock.java
-	cd src/cleaner; $(MAKE)
-	cd src/synth; $(MAKE)
-	cd src/gateKeeper; $(MAKE)
+#classObjects
+COBJ = CommitCleaner.class FilenameCleaner.class ContributorCleaner.class 
+SOBJ = SplatVector.class WorkQuant.class
+GOBJ = gateKeeper.class
 
-clean:
-	cd src/cleaner; $(MAKE) clean
-	cd src/synth; $(MAKE) clean
-#going to have to download and install some ruby crap
-	
+all: Makefile ${COBJ} ${SOBJ} ${GOBJ}
+
+${COBJ}:
+	${JC} src/pollock/cleaner/`basename $@ .class`.java
+
+${SOBJ}:
+	${JC} src/pollock/synth/`basename $@ .class`.java
+
+${GOBJ}:
+	${JC} src/pollock/gateKeeper/`basename $@ .class`.java
