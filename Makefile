@@ -22,3 +22,6 @@ ${GOBJ}:
 
 ${DOBJ}:
 	${JC} src/pollock/data/`basename $@ .class`.java
+
+clean: 
+	find . -name "*.class"|xargs rm -rf
