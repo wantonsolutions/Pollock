@@ -4,7 +4,7 @@
 */
 package pollock.cleaner;
 
-public class CommitCleaner
+public class FileCommitCleaner
 {
 
 	public static void main (String args[]){
