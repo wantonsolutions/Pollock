@@ -5,7 +5,7 @@ package src.pollock.cleaner;
 
 import src.pollock.data.*;
 
-public interface Filename
+public interface FilenameCleanerStrategy
 {
-	public FilenameData cleanCommits(String Filename)
+	public FilenameData cleanCommits(String Filename);
 }

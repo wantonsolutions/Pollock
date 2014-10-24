@@ -4,9 +4,9 @@
 JC	= javac
 
 #classObjects
-COBJ = FileCommitCleaner.class FilenameCleaner.class ContributorCleaner.class ContributorCleanerStrategy.class ContributorCleanerStub.class
-DOBJ = ContributorCommitData.class FileCommitData.class FilenameData.class
-SOBJ = SplatVector.class WorkQuant.class
+COBJ = ContributorCleaner.class ContributorCleanerStrategy.class ContributorCleanerStub.class FileCommitCleaner.class FileCommitCleanerStrategy.class FileCommitCleanerStub.class FilenameCleaner.class FilenameCleanerStrategy.class FilenameCleanerStub.class
+DOBJ = ContributorCommitData.class FileCommitData.class FilenameData.class Splatter.class
+SOBJ = SplatVector.class SplatVectorStrategy.class SplatVectorStub.class WorkQuant.class WorkQuantStrategy.class WorkQuantStub.class
 GOBJ = gateKeeper.class
 
 all: Makefile ${DOBJ} ${COBJ} ${SOBJ} ${GOBJ}

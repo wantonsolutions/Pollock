@@ -3,9 +3,9 @@ import src.pollock.data.*;
 
 public class FileCommitCleanerStub implements FileCommitCleanerStrategy 
 {
-	public FileCommitCleanerStub cleanCommits(String Filename){
+	public FileCommitData cleanCommits(String Filename){
 		System.out.println("Hello World");
-		FileCommitData dat = new FileCommitdata();
+		FileCommitData dat = new FileCommitData();
 		return dat;
 	}	
 
