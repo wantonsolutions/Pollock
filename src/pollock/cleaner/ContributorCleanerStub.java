@@ -1,7 +1,11 @@
+package src.pollock.cleaner;
+import src.pollock.data.*;
 
 public class ContributorCleanerStub implements ContributorCleanerStrategy
 {
-	public Commits cleanCommits(String Filename){
+	public ContributorCommitData cleanCommits(String Filename){
 		System.out.println("Hello World");
+		ContributorCommitData dat = new ContributorCommitData();
+		return dat;
 	}
 }

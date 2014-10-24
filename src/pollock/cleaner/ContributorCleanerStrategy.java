@@ -1,9 +1,8 @@
 /* 
 	ContributorCleanerStrategy is the interface to which contributor cleaners must conform
 */
-package pollock.cleaner;
-
-import pollock.data;
+package src.pollock.cleaner;
+import src.pollock.data.*;
 
 public interface ContributorCleanerStrategy
 {
