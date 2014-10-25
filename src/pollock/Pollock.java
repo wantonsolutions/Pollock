@@ -1,5 +1,7 @@
 package src.pollock;
 
+import java.util.ArrayList;
+
 import src.pollock.data.*;
 import src.pollock.cleaner.*;
 import src.pollock.synth.*;
@@ -18,5 +20,10 @@ public class Pollock
 		FileCommitData fcd = fcc.clean();
 		FilenameCleaner fnc = new FilenameCleaner(f3);
 		FilenameData fnd = fnc.clean();
+		
+		ArrayList<Splatter> splatters = new ArrayList<Splatter>();
+		SplatVector sv = new SplatVector(splatters,fnd,cd);
+		sv.vectorize();
+		
 	}
 }
