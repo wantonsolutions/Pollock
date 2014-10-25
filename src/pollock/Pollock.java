@@ -16,5 +16,7 @@ public class Pollock
 		ContributorCommitData cd = cc.clean();
 		FileCommitCleaner fcc = new FileCommitCleaner(f2);
 		FileCommitData fcd = fcc.clean();
+		FilenameCleaner fnc = new FilenameCleaner(f3);
+		FilenameData fnd = fnc.clean();
 	}
 }
