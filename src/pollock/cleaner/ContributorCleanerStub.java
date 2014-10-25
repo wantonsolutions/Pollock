@@ -3,8 +3,8 @@ import src.pollock.data.*;
 
 public class ContributorCleanerStub implements ContributorCleanerStrategy
 {
-	public ContributorCommitData cleanCommits(String Filename){
-		System.out.println("Hello World");
+	public ContributorCommitData cleanCommits(String filename){
+		System.out.println("Hello "+filename);
 		ContributorCommitData dat = new ContributorCommitData();
 		return dat;
 	}

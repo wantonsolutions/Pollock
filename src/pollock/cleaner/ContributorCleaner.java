@@ -9,7 +9,7 @@ import src.pollock.data.*;
 public class ContributorCleaner {
 	
 	private ContributorCommitData data;
-	private ContributorCleanerStrategy imp;
+	private ContributorCleanerStrategy imp; 
 	private String filename;
 	public ContributorCleaner(String filename)
 	{

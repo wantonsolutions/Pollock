@@ -12,7 +12,7 @@ public class GateKeeper{
 	private static ContributorCleanerImp ContributorCleanerSelection;
 
 	protected GateKeeper(){
-		setContributorCleaner(ContributorCleanerImp.STUB);
+		setContributorCleaner(ContributorCleanerImp.REAL);
 		//to prevent instatiation from a global reference
 	}
 
