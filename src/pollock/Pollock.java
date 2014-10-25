@@ -14,5 +14,7 @@ public class Pollock
 		//Clean the contributor commits
 		ContributorCleaner cc = new ContributorCleaner(f1);
 		ContributorCommitData cd = cc.clean();
+		FileCommitCleaner fcc = new FileCommitCleaner(f2);
+		FileCommitData fcd = fcc.clean();
 	}
 }

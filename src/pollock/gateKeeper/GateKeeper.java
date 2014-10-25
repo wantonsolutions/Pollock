@@ -9,11 +9,18 @@ public class GateKeeper{
 	public static enum ContributorCleanerImp {
 		STUB, V1
 	}
+	public static enum FileCommitCleanerImp {
+		STUB, V1
+	}
+	
 	private static ContributorCleanerImp ContributorCleanerSelection;
+	private static FileCommitCleanerImp FileCommitCleanerSelection;
 
+	//to prevent instantiation from a global reference
 	protected GateKeeper(){
 		setContributorCleaner(ContributorCleanerImp.STUB);
-		//to prevent instatiation from a global reference
+		setFileCommitCleaner(FileCommitCleanerImp.STUB);
+		
 	}
 
 	public static GateKeeper getGateKeeper(){
@@ -23,13 +30,23 @@ public class GateKeeper{
 		return gateKeeper;
 	}
 
+	/*Getters and setters for all the components*/
 	//ContributorCleanerSelection getter and setter
-	public static ContributorCleanerImp getContributorCleaner(){
+	public ContributorCleanerImp getContributorCleaner(){
 		return ContributorCleanerSelection;
 	}
 	
-	public static void setContributorCleaner(ContributorCleanerImp imp){
+	public void setContributorCleaner(ContributorCleanerImp imp){
 		ContributorCleanerSelection = imp;
 	}
+	
+	//FileCommitCleanerSelection getter and setter
+	public FileCommitCleanerImp getFileCommitCleaner(){
+		return FileCommitCleanerSelection;
+	}
+		
+	public void setFileCommitCleaner(FileCommitCleanerImp imp){
+		FileCommitCleanerSelection = imp;
+		}
 }
 
