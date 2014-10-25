@@ -7,10 +7,9 @@ JC	= javac
 COBJ = ContributorCleaner.class ContributorCleanerStrategy.class ContributorCleanerStub.class FileCommitCleaner.class FileCommitCleanerStrategy.class FileCommitCleanerStub.class FilenameCleaner.class FilenameCleanerStrategy.class FilenameCleanerStub.class
 DOBJ = ContributorCommitData.class FileCommitData.class FilenameData.class Splatter.class
 SOBJ = SplatVector.class SplatVectorStrategy.class SplatVectorStub.class WorkQuant.class WorkQuantStrategy.class WorkQuantStub.class
-GOBJ = gateKeeper.class
+GOBJ = GateKeeper.class
 
-all: Makefile ${DOBJ} ${COBJ} ${SOBJ} ${GOBJ}
-
+all: Makefile ${GOBJ} ${DOBJ} ${COBJ} ${SOBJ} 
 ${DOBJ}:
 	${JC} src/pollock/data/`basename $@ .class`.java
 
