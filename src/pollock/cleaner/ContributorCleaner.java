@@ -20,7 +20,7 @@ public class ContributorCleaner {
 			case STUB:
 				imp = new ContributorCleanerStub();
 				break;
-			case REAL:
+			case V1:
 				System.out.println("look its nothing");
 				break;
 			default:

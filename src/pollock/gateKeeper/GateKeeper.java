@@ -7,12 +7,12 @@ public class GateKeeper{
 	private static GateKeeper gateKeeper = null;
 	
 	public static enum ContributorCleanerImp {
-		STUB, REAL
+		STUB, V1
 	}
 	private static ContributorCleanerImp ContributorCleanerSelection;
 
 	protected GateKeeper(){
-		setContributorCleaner(ContributorCleanerImp.REAL);
+		setContributorCleaner(ContributorCleanerImp.STUB);
 		//to prevent instatiation from a global reference
 	}
 
