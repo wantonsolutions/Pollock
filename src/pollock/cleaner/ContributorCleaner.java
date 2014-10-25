@@ -8,9 +8,11 @@ import src.pollock.data.*;
 
 public class ContributorCleaner {
 	
-	private ContributorCommitData data;
-	private ContributorCleanerStrategy imp; 
+	private ContributorCommitData data;		//data associated with the contributor commits
+	private ContributorCleanerStrategy imp; //the particular implementation of the contributor cleaner
 	private String filename;
+	
+	/* when initalizing Contributor cleaner determine which implementation will be used by asking gatekeeper */
 	public ContributorCleaner(String filename)
 	{
 		this.filename = filename;
@@ -29,6 +31,7 @@ public class ContributorCleaner {
 		}
 	}
 	
+	/*clean the raw data into a workable format */
 	public ContributorCommitData clean(){
 		return imp.cleanCommits(filename);
 	}
