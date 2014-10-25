@@ -7,5 +7,5 @@ import java.util.ArrayList;
 
 public interface WorkQuantStrategy
 {
-	public void QuantifyWork(ArrayList<Splatter> splatters, FilenameData filename, FileCommitData fileCommits);
+	public void quantifyCommits(ArrayList<Splatter> splatters, FilenameData filename, FileCommitData fileCommits);
 }

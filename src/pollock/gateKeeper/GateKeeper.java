@@ -22,10 +22,15 @@ public class GateKeeper {
 		STUB, V1
 	}
 
+	public static enum WorkQuantImp {
+		STUB, V1
+	}
+
 	private static ContributorCleanerImp ContributorCleanerSelection;
 	private static FileCommitCleanerImp FileCommitCleanerSelection;
 	private static FilenameCleanerImp FilenameCleanerSelection;
 	private static SplatVectorImp SplatVectorSelection;
+	private static WorkQuantImp WorkQuantSelection;
 
 	// to prevent instantiation from a global reference
 	protected GateKeeper() {
@@ -33,6 +38,7 @@ public class GateKeeper {
 		setFileCommitCleaner(FileCommitCleanerImp.STUB);
 		setFilenameCleaner(FilenameCleanerImp.STUB);
 		setSplatVector(SplatVectorImp.STUB);
+		setWorkQuant(WorkQuantImp.STUB);
 
 	}
 
@@ -78,5 +84,14 @@ public class GateKeeper {
 
 	public void setSplatVector(SplatVectorImp imp) {
 		SplatVectorSelection = imp;
+	}
+
+	// WorkQuantSelection getter and setter
+	public WorkQuantImp getWorkQuant() {
+		return WorkQuantSelection;
+	}
+
+	public void setWorkQuant(WorkQuantImp imp) {
+		WorkQuantSelection = imp;
 	}
 }

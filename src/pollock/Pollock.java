@@ -13,6 +13,7 @@ public class Pollock
 		String f1 = "Contributors.txt";
 		String f2 = "FileCommits.txt";
 		String f3 = "Filenames.txt";
+		
 		//Clean the contributor commits
 		ContributorCleaner cc = new ContributorCleaner(f1);
 		ContributorCommitData cd = cc.clean();
@@ -21,9 +22,15 @@ public class Pollock
 		FilenameCleaner fnc = new FilenameCleaner(f3);
 		FilenameData fnd = fnc.clean();
 		
+		//build the splatters using the cleaned data
 		ArrayList<Splatter> splatters = new ArrayList<Splatter>();
 		SplatVector sv = new SplatVector(splatters,fnd,cd);
 		sv.vectorize();
+		WorkQuant wq = new WorkQuant(splatters,fnd,fcd);
+		wq.quantify();
+		
+		//output splatters into some sort of drawable format
+		
 		
 	}
 }
