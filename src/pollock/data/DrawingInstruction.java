@@ -7,5 +7,10 @@ public class DrawingInstruction
 	public DrawingInstruction(){
 	
 	}
-
+	
+	//outputs the drawing information in a way processing 2 can understand
+	public String draw(){
+		//stub
+		return "all yall up in it\n";
+	}
 }

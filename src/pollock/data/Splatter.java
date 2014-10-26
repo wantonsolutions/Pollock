@@ -17,5 +17,25 @@ public class Splatter
 	
 	public Splatter(){
 		//set some information about the splatters
+		cComs = new ArrayList<ContributorCommit>();
+		fComs = new ArrayList<FileCommit>();
+		drawInfo = new ArrayList<DrawingInstruction>();
+
 	}
+	
+	//outputs the set of drawing instructions as a set of strings catered to a drawing instruction for processing 2
+	public String draw(){
+		String output = "";
+		for(int i =0;i<drawInfo.size();i++){
+			output = output + drawInfo.get(i).draw();
+		}
+		return output;
+	}
+
+	public void addDrawInst(DrawingInstruction di){
+		drawInfo.add(di);
+	}
+		
+
 }
+
