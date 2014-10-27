@@ -12,31 +12,27 @@ public class SplatVectorStub implements SplatVectorStrategy
 {
 	
 	public void vectorizeCommits(ArrayList<Splatter> splatters, FilenameData filename, ContributorCommitData commiters){
-		//TODO replace with vectors corresponding to each contributor
-				//This is just to test that the thickness is correctly calculated - the x and y directions of the vector are set to zero to make the tests simpler
-				int xDirection = 0;
-				int yDirection = 0;
-				int size = 0;
-				HashMap<String, Splatter> map = new HashMap<String, Splatter>();
-				HashMap<String, Integer> xMap = new HashMap<String, Integer>();
-				HashMap<String, Integer> yMap = new HashMap<String, Integer>();
-				for(FileCommit fc : commiters.getCommits()){
-					Splatter sp = map.get(fc.getFilename());
-					if(sp == null){
-						sp = new Splatter();
-						map.put(fc.getFilename(), sp);
-					}
-					Integer x = xMap.get(fc.getFilename());
-					Integer y = yMap.get(fc.getFilename());
-					if(x == null){ x = 0;}
-					if(y == null){ y = 0;}
-					x += xDirection;
-					y += yDirection;
-					size = fc.getCommitWork();
-					sp.addDrawInst(new DrawingInstruction(x, y, size, size));
-				}
-				for(Splatter spt : map.values()){
-					splatters.add(spt);
-				}
+		System.out.println("Adding vectors to the splatters");
+		Splatter spt = new Splatter();
+		spt.addDrawInst(new DrawingInstruction(0, 0, 0, 0));
+		spt.addDrawInst(new DrawingInstruction(0, 1, 0, 0));
+		spt.addDrawInst(new DrawingInstruction(1, 1, 0, 0));
+		spt.addDrawInst(new DrawingInstruction(3, 2, 0, 0));
+		splatters.add(spt);
+		
+		spt = new Splatter();
+		spt.addDrawInst(new DrawingInstruction(10, 10, 0, 0));
+		spt.addDrawInst(new DrawingInstruction(10, 11, 0, 0));
+		spt.addDrawInst(new DrawingInstruction(11, 11, 0, 0));
+		spt.addDrawInst(new DrawingInstruction(13, 12, 0, 0));
+		splatters.add(spt);
+		
+		spt = new Splatter();
+		spt.addDrawInst(new DrawingInstruction(20, 20, 0, 0));
+		spt.addDrawInst(new DrawingInstruction(20, 21, 0, 0));
+		spt.addDrawInst(new DrawingInstruction(21, 21, 0, 0));
+		spt.addDrawInst(new DrawingInstruction(23, 22, 0, 0));
+		splatters.add(spt);
+		return;
 	}
 }
