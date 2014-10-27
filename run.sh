@@ -15,11 +15,13 @@ gitstats tempDir/$repoName ./sgout
 
 ant run
 
+#move the drawable output to processing
+mv DrawableOutput.txt ../processing-2.2.1/draw/draw/data
 cd ../processing-2.2.1
-./processing #DrawableOutput.txt
+./processing-java --run --force --sketch=draw/draw --output=r #DrawableOutput.txt
 
 #this line will have to take the output of pollock and throw it at processing
-sleep 10
+#sleep 10
 
 cd ../pollock
 
