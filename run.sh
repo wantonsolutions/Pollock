@@ -15,8 +15,15 @@ gitstats tempDir/$repoName ./sgout
 
 ant run
 
+cd ../processing-2.2.1
+./processing #DrawableOutput.txt
+
 #this line will have to take the output of pollock and throw it at processing
+sleep 10
 
-#yes | rm -r sgout
-#yes | rm -r tempDir
+cd ../pollock
 
+ant distclean
+yes | rm -r sgout
+yes | rm -r tempDir
+yes | rm *.txt
