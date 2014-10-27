@@ -15,5 +15,37 @@ public class ContributorCommit
 		this.date = date;
 		this.filename = filename;
 	}
+
+	public String getContributor() {
+		return contributor;
+	}
+
+	public void setContributor(String contributor) {
+		this.contributor = contributor;
+	}
+
+	public String getCommit() {
+		return commit;
+	}
+
+	public void setCommit(String commit) {
+		this.commit = commit;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+	public String getFilename() {
+		return filename;
+	}
+
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
 	
 }
