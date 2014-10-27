@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import data.DrawingInstruction;
-import data.FileCommit;
-import data.Splatter;
+import src.pollock.data.DrawingInstruction;
+import src.pollock.data.FileCommit;
+import src.pollock.data.Splatter;
 public class SplatVectorStub implements SplatVectorStrategy
 {
 	

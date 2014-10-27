@@ -3,8 +3,8 @@ import src.pollock.data.*;
 
 import java.util.ArrayList;
 
-import data.DrawingInstruction;
-import data.Splatter;
+import src.pollock.data.DrawingInstruction;
+import src.pollock.data.Splatter;
 
 public class WorkQuantStub implements WorkQuantStrategy
 {
