@@ -41,6 +41,8 @@ public class Pollock
 			for(int i = 0;i<splatters.size();i++){
 				w.print(splatters.get(i).draw());
 			}
+			w.close();
+			
 		}
 		catch(IOException e){
 			System.out.println("what is this some kind of joke, you are suppoed to be making the file!!!");
