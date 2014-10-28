@@ -3,9 +3,11 @@
 */
 package src.pollock.data;
 
+import java.util.ArrayList;
+
 public class ContributorCommitData 
 {
-	public ContributorCommitData(){
+	
 		private ArrayList<ContributorCommit> ccs;
 
 		public ContributorCommitData(){
@@ -53,5 +55,5 @@ public class ContributorCommitData
 			ccs.add(testContributorCommit);
 		}
 	
-	}
+	
 }
