@@ -6,6 +6,7 @@ public class ContributorCleanerStub implements ContributorCleanerStrategy
 	public ContributorCommitData cleanCommits(String filename){
 		System.out.println("Hello "+filename);
 		ContributorCommitData dat = new ContributorCommitData();
+		dat.populateTestData();
 		return dat;
 	}
 }

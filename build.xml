@@ -1,15 +1,22 @@
 <project name="Pollock" default="compile" basedir=".">
     <property name="build" location="build" />
     <property name="jarfile" value="Pollock.jar" />
-
+	
     <target name="compile" description="build the class files and jar">
         <mkdir dir="${build}" />
-        <javac srcdir="src" destdir="${build}" includeantruntime="false" />
+        <javac srcdir="src" destdir="${build}" includeantruntime="false">
+			<classpath>
+				<pathelement path="${classpath}"/>
+				<pathelement location="ant-junit.jar"/>
+				<pathelement location="junit.jar"/>
+			</classpath>
+		</javac>
         <jar destfile="${jarfile}" basedir="${build}">
             <manifest>
                 <attribute name="Main-Class" value="src/pollock/Pollock"/>
             </manifest>
         </jar>
+		
     </target>
 
     <target name="run" depends="compile" description="compile and run the jar">
