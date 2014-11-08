@@ -5,7 +5,7 @@ JC	= javac
 
 #classObjects
 POBJ = Pollock.class
-COBJ = ContributorCleaner.class ContributorCleanerStrategy.class ContributorCleanerStrategyImpl.class ContributorCleanerStub.class FileCommitCleaner.class FileCommitCleanerStrategy.class FileCommitCleanerStub.class FilenameCleaner.class FilenameCleanerStrategy.class FilenameCleanerStub.class 
+COBJ = ContributorCleaner.class ContributorCleanerStrategy.class ContributorCleanerStrategyImpl.class ContributorCleanerStub.class FileCommitCleaner.class FileCommitCleanerStrategy.class FileCommitCleanerStrategyImpl.class FileCommitCleanerStub.class FilenameCleaner.class FilenameCleanerStrategy.class FilenameCleanerStub.class 
 DOBJ = ContributorCommitData.class FileCommitData.class FilenameData.class Splatter.class
 SOBJ = SplatVector.class SplatVectorStrategy.class SplatVectorStub.class WorkQuant.class WorkQuantStrategy.class WorkQuantStub.class
 GOBJ = GateKeeper.class
