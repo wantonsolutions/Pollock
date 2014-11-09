@@ -12,6 +12,8 @@ commits.each do|commit|
 	output1 << commit.sha 
 	output1 << ","
 	output1 << commit.commit.committer.name
+	output1 << ","
+	output1 << commit.commit.committer.date
 	output1 << "\n"
 	
 	icommit = Octokit.commit(repository, commit.sha)
