@@ -25,14 +25,13 @@ public class ContributorCleanerStrategyImpl implements
 			while ((line = reader.readLine()) != null) {
 				// System.out.println(line);
 				String[] values = line.split("\t");
-				if (values.length >= 4) {
+				if (values.length >= 2) {
 					String name = values[0];
 					String commit = values[1];
-					String date = values[2];
-					String fileName = values[3];
+					// String date = values[2];
+					// String fileName = values[3];
 
-					ContributorCommit cc = new ContributorCommit(name, commit,
-							date, fileName);
+					ContributorCommit cc = new ContributorCommit(name, commit);
 					result.add(cc);
 				}
 			}

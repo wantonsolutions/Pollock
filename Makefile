@@ -9,8 +9,10 @@ COBJ = ContributorCleaner.class ContributorCleanerStrategy.class ContributorClea
 DOBJ = ContributorCommitData.class FileCommitData.class FilenameData.class Splatter.class
 SOBJ = SplatVector.class SplatVectorStrategy.class SplatVectorStub.class WorkQuant.class WorkQuantStrategy.class WorkQuantStub.class
 GOBJ = GateKeeper.class
+TOBJ = TestDrawingInstruction.class TestContributorCleanerStrategyImpl.class TestSplatVectorStub.class TestWorkQuantStub.class
 
-all: Makefile ${POBJ} ${GOBJ} ${DOBJ} ${COBJ} ${SOBJ} 
+all: Makefile ${POBJ} ${GOBJ} ${DOBJ} ${COBJ} ${SOBJ} ${TOBJ}
+
 ${DOBJ}:
 	${JC} src/pollock/data/`basename $@ .class`.java
 
@@ -26,6 +28,8 @@ ${GOBJ}:
 ${POBJ}:
 	${JC} src/pollock/`basename $@ .class`.java
 
+${TOBJ}:
+	${JC} src/pollock/test/`basename $@ .class`.java
 
 clean: 
 	find . -name "*.class"|xargs rm -rf
