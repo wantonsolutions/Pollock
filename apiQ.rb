@@ -2,6 +2,13 @@
 
 require 'octokit'
 
+client = Octokit::Client.new 
+	#:login	=> 'wantonsolutions',
+	#:password => 'iwicbV15'
+
+user = client.user
+user.login
+
 repository = 'wantonsolutions/Pollock'
 output1 = File.open("UserCommits.txt","w")
 output2 = File.open("FileCommits.txt","w")

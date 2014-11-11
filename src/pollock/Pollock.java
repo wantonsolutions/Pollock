@@ -11,7 +11,7 @@ public class Pollock
 {
 	public static void main(String []args){
 		//start by making some fake filenames eventually read from the command line
-		String f1 = "Contributors.txt";
+		String f1 = "UserCommits.txt";
 		String f2 = "FileCommits.txt";
 		String f3 = "Filenames.txt";
 		String of = "DrawableOutput.txt";
@@ -19,6 +19,7 @@ public class Pollock
 		//Clean the contributor commits
 		ContributorCleaner cc = new ContributorCleaner(f1);
 		ContributorCommitData cd = cc.clean();
+	//	System.out.println(cd.toString());
 		FileCommitCleaner fcc = new FileCommitCleaner(f2);
 		FileCommitData fcd = fcc.clean();
 		FilenameCleaner fnc = new FilenameCleaner(f3);

@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 
 import src.pollock.cleaner.ContributorCleanerStrategy;
-import src.pollock.cleaner.ContributorCleanerStrategyImpl;
+import src.pollock.cleaner.ContributorCleanerV1;
 import src.pollock.data.ContributorCommit;
 import src.pollock.data.ContributorCommitData;
 
@@ -13,7 +13,7 @@ public class TestContributorCleanerStrategyImpl {
 
 	@Test
 	public void test() {
-		ContributorCleanerStrategy sut = new ContributorCleanerStrategyImpl();
+		ContributorCleanerStrategy sut = new ContributorCleanerV1();
 		// change path
 		String path = "C:\\Users\\Nastya\\contributorCommit.txt";
 		
