@@ -16,7 +16,7 @@ public class ContributorCleanerV1 implements
 
 	@Override
 	public ContributorCommitData cleanCommits(String Filename) {
-		System.out.println("this is version 1");
+		System.out.println("CCV1 cleaning ...");
 		ContributorCommitData result = new ContributorCommitData();
 		BufferedReader reader = null;
 

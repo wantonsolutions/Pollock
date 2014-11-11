@@ -35,7 +35,7 @@ public class GateKeeper {
 	// to prevent instantiation from a global reference
 	protected GateKeeper() {
 		setContributorCleaner(ContributorCleanerImp.V1);
-		setFileCommitCleaner(FileCommitCleanerImp.STUB);
+		setFileCommitCleaner(FileCommitCleanerImp.V1);
 		setFilenameCleaner(FilenameCleanerImp.STUB);
 		setSplatVector(SplatVectorImp.STUB);
 		setWorkQuant(WorkQuantImp.STUB);

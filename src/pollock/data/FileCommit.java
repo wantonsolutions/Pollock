@@ -18,6 +18,10 @@ public class FileCommit{
 		this.commitWork = additions + deletions;
 	}
 
+	public String toString(){
+		return this.filename + " " + this.commit + " " + this.additions + " " + this.deletions + " " + this.commitWork + "\n";
+	}
+
 	public String getFilename(){
 		return this.filename;
 	}

@@ -21,6 +21,15 @@ public class FileCommitData {
 		return fcs;
 	}
 
+	public String toString(){
+		String self = "";
+		for(int i=0;i<fcs.size();i++){
+			self = self + fcs.get(i).toString() + "\n";
+		}
+		return self;	
+	}
+
+
 	// add some functionality for getting subsets of information like particular
 	// arraylists based on the data
 	public void populateTestData() {

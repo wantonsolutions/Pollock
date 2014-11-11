@@ -21,16 +21,16 @@ public class FileCommitCleanerV1 implements FileCommitCleanerStrategy {
         FileCommitData result = new FileCommitData();
         BufferedReader reader = null;
         try {
-
+		System.out.println("FCCV1 cleaning ...");
             FileReader fileReader = new FileReader(filename);
             reader = new BufferedReader(fileReader);
             String line;
             while ((line = reader.readLine()) != null) {
                  //System.out.println(line);
-                String[] values = line.split(" ");
+                String[] values = line.split(",");
                 if (values.length >= 4) {
-                    String fname = values[0];
-                    String commit = values[1];
+                    String commit = values[0];
+                    String fname = values[1];
                     int additions = Integer.parseInt(values[2]);
                     int deletions = Integer.parseInt(values[3]);
 
