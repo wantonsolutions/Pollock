@@ -20,8 +20,17 @@ public class ContributorCommitData {
 	public ArrayList<ContributorCommit> getContributorCommits() {
 		return ccs;
 	}
+	
+	public String toString(){
+		String self = "";
+		for(int i=0;i<ccs.size();i++){
+			self = self + ccs.get(i).toString() + "\n";
+		}
+		return self;	
+	}
 
 	public void populateTestData() {
+	/*
 		ContributorCommit testContributorCommit = new ContributorCommit(
 				"contributor1", "Test commit message 1");
 		ccs.add(testContributorCommit);
@@ -52,6 +61,7 @@ public class ContributorCommitData {
 		testContributorCommit = new ContributorCommit("contributor2",
 				"Test commit message 10");
 		ccs.add(testContributorCommit);
+	*/
 	}
 
 }

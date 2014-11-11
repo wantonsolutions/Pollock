@@ -25,7 +25,7 @@ public class FileCommitCleaner
 				imp = new FileCommitCleanerStub();
 				break;
 			case V1:
-				System.out.println("look its nothing");
+				imp = new FileCommitCleanerV1();
 				break;
 			default:
 				System.out.println("strategy not implementable");

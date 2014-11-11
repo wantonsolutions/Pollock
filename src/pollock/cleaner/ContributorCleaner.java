@@ -21,7 +21,7 @@ public class ContributorCleaner {
 				imp = new ContributorCleanerStub();
 				break;
 			case V1:
-				System.out.println("look its nothing");
+				imp = new ContributorCleanerV1();
 				break;
 			default:
 				System.out.println("strategy not implementable");
