@@ -9,7 +9,7 @@ import src.pollock.data.Splatter;
 public class WorkQuantStub implements WorkQuantStrategy
 {
 	
-	public void quantifyCommits(ArrayList<Splatter> splatters, FilenameData filename, FileCommitData fileCommits){
+	public void quantifyCommits(ArrayList<Splatter> splatters, FileCommitData fileCommits, ContributorCommitData contributorCommits ){
 		System.out.println("Adding width to the splatters");
 		Splatter spt = new Splatter();
 		spt.addDrawInst(new DrawingInstruction(0, 0, 10, 10));

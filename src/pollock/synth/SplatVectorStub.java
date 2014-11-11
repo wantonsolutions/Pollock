@@ -11,7 +11,7 @@ import src.pollock.data.Splatter;
 public class SplatVectorStub implements SplatVectorStrategy
 {
 	
-	public void vectorizeCommits(ArrayList<Splatter> splatters, FilenameData filename, ContributorCommitData commiters){
+	public void vectorizeCommits(ArrayList<Splatter> splatters, FileCommitData FileCommit, ContributorCommitData commiters){
 		System.out.println("Adding vectors to the splatters");
 		Splatter spt = new Splatter();
 		spt.addDrawInst(new DrawingInstruction(0, 0, 0, 0));

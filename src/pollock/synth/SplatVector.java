@@ -6,21 +6,21 @@ package src.pollock.synth;
 import java.util.ArrayList;
 
 import src.pollock.data.ContributorCommitData;
-import src.pollock.data.FilenameData;
+import src.pollock.data.FileCommitData;
 import src.pollock.data.Splatter;
 import src.pollock.gateKeeper.GateKeeper;
 
 public class SplatVector
 {
 	private ArrayList<Splatter> splatters;
-	private FilenameData filename;
+	private FileCommitData fileCommits;
 	private ContributorCommitData commiters;
 	private SplatVectorStrategy imp; //the particular implementation of the File cleaner
 	
-	public SplatVector(ArrayList<Splatter> splatters, FilenameData filename, ContributorCommitData commiters)
+	public SplatVector(ArrayList<Splatter> splatters, FileCommitData fileCommits, ContributorCommitData commiters)
 	{
 		this.splatters = splatters;
-		this.filename = filename;
+		this.fileCommits = fileCommits;
 		this.commiters = commiters;
 		GateKeeper gate = GateKeeper.getGateKeeper();
 		GateKeeper.SplatVectorImp cImp = gate.getSplatVector();
@@ -39,7 +39,7 @@ public class SplatVector
 	
 	/*clean the raw data into a workable format */
 	public void vectorize(){
-		imp.vectorizeCommits(splatters,filename,commiters);
+		imp.vectorizeCommits(splatters,fileCommits,commiters);
 	}
 	
 }

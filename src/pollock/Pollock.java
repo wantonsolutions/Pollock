@@ -13,7 +13,6 @@ public class Pollock
 		//start by making some fake filenames eventually read from the command line
 		String f1 = "UserCommits.txt";
 		String f2 = "FileCommits.txt";
-		String f3 = "Filenames.txt";
 		String of = "DrawableOutput.txt";
 		
 		//Clean the contributor commits
@@ -21,15 +20,13 @@ public class Pollock
 		ContributorCommitData cd = cc.clean();
 		FileCommitCleaner fcc = new FileCommitCleaner(f2);
 		FileCommitData fcd = fcc.clean();
-	//	System.out.println(fcd.toString());
-		FilenameCleaner fnc = new FilenameCleaner(f3);
-		FilenameData fnd = fnc.clean();
 		
 		//build the splatters using the cleaned data
 		ArrayList<Splatter> splatters = new ArrayList<Splatter>();
-		SplatVector sv = new SplatVector(splatters,fnd,cd);
+		nameSplatters(splatters,fcd);
+		SplatVector sv = new SplatVector(splatters,fcd,cd);
 		sv.vectorize();
-		WorkQuant wq = new WorkQuant(splatters,fnd,fcd);
+		WorkQuant wq = new WorkQuant(splatters,fcd,cd);
 		wq.quantify();
 		
 		//output splatters into some sort of drawable format
@@ -50,4 +47,26 @@ public class Pollock
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	/**
+		gives each of the splatters a unique name based on the names of each of the files in the given repository
+	
+	@param splatters an empty list of splatters, will be filled with named splatters.
+	@param fcd a full list of the file commit data from a repository
+	*/
+	private static void nameSplatters(ArrayList<Splatter> splatters, FileCommitData fcd)
+	{
+		//generate the unique list of name
+		ArrayList<String> names = new ArrayList<String>();
+		for(int i =0;i<fcd.get().size();i++){
+			String fname=fcd.get().get(i).getFilename();
+			if(!names.contains(fname))
+				names.add(fname);
+		}
+		//create a new splatter for each name
+		for(int i=0; i<names.size();i++){
+			splatters.add(new Splatter(names.get(i)));
+		}	
+	}
+
 }
