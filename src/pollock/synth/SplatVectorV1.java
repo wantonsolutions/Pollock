@@ -1,28 +1,37 @@
 package src.pollock.synth;
 import src.pollock.data.*;
+import java.lang.Math;
 
 import java.util.ArrayList;
 
 public class SplatVectorV1 implements SplatVectorStrategy
 {
 	
-	private class userVec
+	private class UserVec
 	{
 		String username;
 		double radians;
 		
-		public userVec(){
+		public UserVec(){
 			username = "";
 			radians = 0.0;
 		}
 		
-		public userVec(String uname, double radian){
+		public UserVec(String uname, double radian){
 			this.username = uname;
 			this.radians = radian;
 		}
+
+		public String getUsername(){
+			return this.username;
+		}
+
+		public double getRadians(){
+			return this.radians;
+		}
 	}
 	
-	private ArrayList<userVec> uv = new ArrayList<userVec>();
+	private ArrayList<UserVec> uv = new ArrayList<UserVec>();
 	private FileCommitData fcd;
 	private ContributorCommitData ccd;
 	private ArrayList<Splatter> splatters;
@@ -35,8 +44,12 @@ public class SplatVectorV1 implements SplatVectorStrategy
 		this.ccd = commiters;
 		
 		vectorizeUsers();
+		basicStrokes();
 	}
-
+	
+	/**
+		assigns a direction to each of the users based on the date that they first joined the repository, the directions are evenly distributed about a polar coordianate
+	*/
 	private void vectorizeUsers()
 	{
 		ArrayList<String> names = new ArrayList<String>();
@@ -47,8 +60,66 @@ public class SplatVectorV1 implements SplatVectorStrategy
 			}
 		}
 		
+		double slicesize = (2.0 * Math.PI)/((double)names.size());
+		System.out.println(slicesize);
 		for(int i=0;i<names.size();i++){
+			uv.add(new UserVec(names.get(i),i*slicesize));
 			System.out.println(names.get(i));
+		}
+	}
+	
+	/**
+		basicStrokes is the implementation of the paint splattering, each commit causes the splatter to move in the direction of the committer, basic Strokes is the most basic of such algorithms simply taking into account a single commit*/
+	private void basicStrokes()
+	{
+		//for each splatter in the system (or for each file)
+		for(int i=0;i<splatters.size();i++)
+		{
+			//go through all the file commits matching file commits to file
+			for(int j=0;j<fcd.get().size();j++)
+			{
+				//if the commit matches the filename
+				if(fcd.get().get(j).getFilename() == splatters.get(i).getFilename()){
+					String sha = fcd.get().get(j).getCommit();
+					String Usha;
+					int k = 0;
+					//find the user that commited that file
+					do{
+						Usha = ccd.getCC().get(k).getCommit();
+						k++;
+					}while(!Usha.equals(sha) &&  k<ccd.getCC().size());
+					k--;//correct for acceptance condition
+					//now k is references the user who commited to the file
+					String Uname = ccd.getCC().get(k).getContributor();// with the username we can look into userVec and find the name
+					
+					int l =0;
+					String tname;
+					//find the vector associated with that user
+					do{
+						tname = uv.get(l).getUsername();
+						l++;
+					}while(!tname.equals(Uname) && l<uv.size());
+					l--;//correct for the acceptance condition
+					double dir = uv.get(l).getRadians();
+					//System.out.println("Filename: "+splatters.get(i).getFilename()+"\tsha: "+sha+"\nname: "+Uname+"\tdir: "+dir+"\n"); 
+					
+					//add this new step as a drawing instruction to the splatter;
+					DrawingInstruction di = new DrawingInstruction();
+					
+					if(splatters.get(i).getDrawInfo().size()==0){
+						di.setx(splatters.get(i).getXStart());
+						di.sety(splatters.get(i).getYStart());
+						di.setDirection(dir);
+					}
+					else{
+
+					}
+					//System.out.println(di.toString());
+					splatters.get(i).addDrawInst(di);
+				}
+				
+			}
+			
 		}
 	}
 }

@@ -48,6 +48,10 @@ public class Splatter
 		return output;
 	}
 
+	public ArrayList<DrawingInstruction> getDrawInfo(){
+		return drawInfo;
+	}
+
 	public void addDrawInst(DrawingInstruction di){
 		drawInfo.add(di);
 	}
@@ -69,7 +73,13 @@ public class Splatter
 		this.filename = filename;
 	}
 		
+	public int getXStart(){
+		return xStart;
+	}
 
+	public int getYStart(){
+		return yStart;
+	}
 		
 
 }
