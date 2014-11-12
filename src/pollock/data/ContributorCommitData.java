@@ -17,7 +17,7 @@ public class ContributorCommitData {
 		ccs.add(cc);
 	}
 
-	public ArrayList<ContributorCommit> getContributorCommits() {
+	public ArrayList<ContributorCommit> getCC() {
 		return ccs;
 	}
 	

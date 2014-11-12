@@ -21,6 +21,19 @@ public class ContributorCommit
 		return this.contributor + ", " + this.commit + ", " + this.date ;
 	}
 
+	public String getContributor(){
+		return this.contributor;
+	}
+
+	public String getCommit(){
+		return this.commit;
+	}
+
+	public String getData(){
+		return this.date;
+	}
+	
+
 	//put in some getters and setters
 	
 }

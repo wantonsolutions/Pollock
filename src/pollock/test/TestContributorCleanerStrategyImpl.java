@@ -19,7 +19,7 @@ public class TestContributorCleanerStrategyImpl {
 		
 		ContributorCommitData loc = sut.cleanCommits(path);
 		assertNotNull("expected result should not be null", loc);
-		ArrayList<ContributorCommit> list = loc.getContributorCommits();
+		ArrayList<ContributorCommit> list = loc.getCC();
 		assertNotNull("expected result should not be null", list);
 		assertFalse(list.isEmpty());
 		

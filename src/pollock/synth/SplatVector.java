@@ -29,7 +29,7 @@ public class SplatVector
 				imp = new SplatVectorStub();
 				break;
 			case V1:
-				System.out.println("look its nothing");
+				imp = new SplatVectorV1();
 				break;
 			default:
 				System.out.println("strategy not implementable");
