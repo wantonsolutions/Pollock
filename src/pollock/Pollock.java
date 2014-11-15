@@ -3,6 +3,7 @@ package src.pollock;
 import java.util.ArrayList;
 import java.io.PrintWriter;
 import java.io.IOException;
+import java.lang.Math;
 import java.util.Random;
 import src.pollock.data.*;
 import src.pollock.cleaner.*;
@@ -10,14 +11,14 @@ import src.pollock.synth.*;
 
 public class Pollock
 {
-	private static int WINDOW_HEIGHT = 500;
-	private static int WINDOW_WIDTH = 500;
+	private static int WINDOW_HEIGHT = 300;
+	private static int WINDOW_WIDTH = 300;
 	
 	public static void main(String []args){
 		//start by making some fake filenames eventually read from the command line
 		String f1 = "UserCommits.txt";
 		String f2 = "FileCommits.txt";
-		String of = "DrawableOutput.txt";
+		String of = "out.txt";
 		
 		//Clean the contributor commits
 		ContributorCleaner cc = new ContributorCleaner(f1);
@@ -74,8 +75,8 @@ public class Pollock
 		int x;
 		int y;
 		for(int i=0; i<names.size();i++){
-			x = gen.nextInt() % WINDOW_WIDTH;
-			y = gen.nextInt() % WINDOW_HEIGHT;
+			x = Math.abs(gen.nextInt() % WINDOW_WIDTH);
+			y = Math.abs(gen.nextInt() % WINDOW_HEIGHT);
 			splatters.add(new Splatter(names.get(i),x,y));
 		}	
 	}

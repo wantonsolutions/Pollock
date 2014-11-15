@@ -2,10 +2,10 @@
 
 require 'octokit'
 
-client = Octokit::Client.new (:access_token =>"11a1d0e1ab571cd2404dac0adc3f408e1547df2d")
+#client = Octokit::Client.new (:access_token =>"11a1d0e1ab571cd2404dac0adc3f408e1547df2d")
 
-user = client.user
-user.login
+#user = client.user
+#user.login
 
 repository = 'wantonsolutions/Pollock'
 output1 = File.open("UserCommits.txt","w")

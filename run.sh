@@ -1,7 +1,7 @@
 #!/bin/bash
 args=("$@")
 repo=${args[0]}
-#ruby apiQ.rb
+ruby apiQ.rb
 #make a repo to clone into
 
 #mkdir tempDir
@@ -17,9 +17,9 @@ repo=${args[0]}
 ant run
 
 #move the drawable output to processing
-mv DrawableOutput.txt ../processing-2.2.1/draw/draw/data
+mv out.txt ../processing-2.2.1/draw/draw/data
 cd ../processing-2.2.1
-./processing-java --run --force --sketch=draw/draw --output=r #DrawableOutput.txt
+./processing-java --run --force --sketch=draw/draw --output=r
 
 #this line will have to take the output of pollock and throw it at processing
 #sleep 10

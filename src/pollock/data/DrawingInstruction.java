@@ -23,8 +23,12 @@ public class DrawingInstruction
 	
 	//outputs the drawing information in a way processing 2 can understand
 	public String draw(){
-		//stub
-		return "" + x +" " + y + " " + width + " " + height;
+		if(this.width == 0  && this.height == 0){
+			return this.x +"\t" + this.y +"\n";
+		}
+		else{
+			return this.x +"\t" + this.y + "\t" + this.width + "\t" + this.height + "\n";
+		}
 	}
 		
 	public String toString(){
