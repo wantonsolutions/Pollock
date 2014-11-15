@@ -64,8 +64,10 @@ public class Pollock
 		ArrayList<String> names = new ArrayList<String>();
 		for(int i =0;i<fcd.get().size();i++){
 			String fname=fcd.get().get(i).getFilename();
-			if(!names.contains(fname))
+			if(!names.contains(fname)){
 				names.add(fname);
+				//System.out.println("N: "+fname);
+			}
 		}
 		//create a new splatter for each name
 		Random gen = new Random();

@@ -6,7 +6,9 @@ import java.util.ArrayList;
 
 public class SplatVectorV1 implements SplatVectorStrategy
 {
-	
+	/**
+	UserVec defines a particular user, and is used to synthesize the direction of a splatter at any given commit
+	*/	
 	private class UserVec
 	{
 		String username;
@@ -16,7 +18,11 @@ public class SplatVectorV1 implements SplatVectorStrategy
 			username = "";
 			radians = 0.0;
 		}
-		
+		/**
+		Constructor sets local variables
+		@param uname the username of a particular contributor
+		@param radian the direction associated with a particular contributor
+		*/
 		public UserVec(String uname, double radian){
 			this.username = uname;
 			this.radians = radian;
@@ -30,7 +36,7 @@ public class SplatVectorV1 implements SplatVectorStrategy
 			return this.radians;
 		}
 	}
-	
+	private final double coeff = 2.0;	
 	private ArrayList<UserVec> uv = new ArrayList<UserVec>();
 	private FileCommitData fcd;
 	private ContributorCommitData ccd;
@@ -58,8 +64,7 @@ public class SplatVectorV1 implements SplatVectorStrategy
 			if(!names.contains(uname)){
 				names.add(uname);
 			}
-		}
-		
+		}		
 		double slicesize = (2.0 * Math.PI)/((double)names.size());
 		System.out.println(slicesize);
 		for(int i=0;i<names.size();i++){
@@ -79,7 +84,8 @@ public class SplatVectorV1 implements SplatVectorStrategy
 			for(int j=0;j<fcd.get().size();j++)
 			{
 				//if the commit matches the filename
-				if(fcd.get().get(j).getFilename() == splatters.get(i).getFilename()){
+				if(fcd.get().get(j).getFilename().equals(splatters.get(i).getFilename())){
+					//System.out.println("name: "+splatters.get(i).getFilename());
 					String sha = fcd.get().get(j).getCommit();
 					String Usha;
 					int k = 0;
@@ -105,19 +111,29 @@ public class SplatVectorV1 implements SplatVectorStrategy
 					
 					//add this new step as a drawing instruction to the splatter;
 					DrawingInstruction di = new DrawingInstruction();
-					
-					if(splatters.get(i).getDrawInfo().size()==0){
+					int splatterSize = splatters.get(i).getDrawInfo().size();
+					//if the drawing instruction is the first one in the set start it from where the splatter denotes
+					if(splatterSize==0){
 						di.setx(splatters.get(i).getXStart());
 						di.sety(splatters.get(i).getYStart());
 						di.setDirection(dir);
+						System.out.print("new:");
 					}
+					//compute the comement vector
 					else{
+						//get the last drawing instruction
+						DrawingInstruction last = splatters.get(i).getDrawInfo().get(splatterSize -1);
+						double dx = Math.sin(dir)*coeff;
+						double dy = Math.cos(dir)*coeff;
+						di.setx(last.getx()+(int)Math.round(dx)); 
+						di.sety(last.gety()+(int)Math.round(dy)); 
+						di.setDirection(dir);
+						System.out.print("old:");
 
 					}
-					//System.out.println(di.toString());
+					System.out.println(di.toString());
 					splatters.get(i).addDrawInst(di);
 				}
-				
 			}
 			
 		}

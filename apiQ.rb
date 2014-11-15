@@ -2,9 +2,7 @@
 
 require 'octokit'
 
-client = Octokit::Client.new 
-	#:login	=> 'wantonsolutions',
-	#:password => 'iwicbV15'
+client = Octokit::Client.new (:access_token =>"11a1d0e1ab571cd2404dac0adc3f408e1547df2d")
 
 user = client.user
 user.login
@@ -14,6 +12,8 @@ output1 = File.open("UserCommits.txt","w")
 output2 = File.open("FileCommits.txt","w")
 sha = 0
 #get user commits
+
+Octokit.auto_paginate = true;
 commits = Octokit.commits repository
 commits.each do|commit| 
 	output1 << commit.sha 
