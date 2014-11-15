@@ -45,6 +45,7 @@ public class SplatVectorV1 implements SplatVectorStrategy
 
 	
 	public void vectorizeCommits(ArrayList<Splatter> splatters, FileCommitData fileCommit, ContributorCommitData commiters){
+		System.out.println("SVV1 vectorizing ...");
 		this.splatters = splatters;
 		this.fcd = fileCommit;
 		this.ccd = commiters;
@@ -66,10 +67,10 @@ public class SplatVectorV1 implements SplatVectorStrategy
 			}
 		}		
 		double slicesize = (2.0 * Math.PI)/((double)names.size());
-		System.out.println(slicesize);
+		//System.out.println(slicesize);
 		for(int i=0;i<names.size();i++){
 			uv.add(new UserVec(names.get(i),i*slicesize));
-			System.out.println(names.get(i));
+			//System.out.println(names.get(i));
 		}
 	}
 	
@@ -111,13 +112,14 @@ public class SplatVectorV1 implements SplatVectorStrategy
 					
 					//add this new step as a drawing instruction to the splatter;
 					DrawingInstruction di = new DrawingInstruction();
+					di.setSha(sha);
 					int splatterSize = splatters.get(i).getDrawInfo().size();
 					//if the drawing instruction is the first one in the set start it from where the splatter denotes
 					if(splatterSize==0){
 						di.setx(splatters.get(i).getXStart());
 						di.sety(splatters.get(i).getYStart());
 						di.setDirection(dir);
-						System.out.print("new:");
+						//System.out.print("new:");
 					}
 					//compute the comement vector
 					else{
@@ -128,10 +130,10 @@ public class SplatVectorV1 implements SplatVectorStrategy
 						di.setx(last.getx()+(int)Math.round(dx)); 
 						di.sety(last.gety()+(int)Math.round(dy)); 
 						di.setDirection(dir);
-						System.out.print("old:");
+						//System.out.print("old:");
 
 					}
-					System.out.println(di.toString());
+					//System.out.println(di.toString());
 					splatters.get(i).addDrawInst(di);
 				}
 			}

@@ -12,6 +12,7 @@ public class WorkQuantStub implements WorkQuantStrategy
 	public void quantifyCommits(ArrayList<Splatter> splatters, FileCommitData fileCommits, ContributorCommitData contributorCommits ){
 		System.out.println("Adding width to the splatters");
 		Splatter spt = new Splatter();
+		
 		spt.addDrawInst(new DrawingInstruction(0, 0, 10, 10));
 		spt.addDrawInst(new DrawingInstruction(0, 1, 5, 5));
 		spt.addDrawInst(new DrawingInstruction(1, 1, 3, 3));
@@ -31,6 +32,7 @@ public class WorkQuantStub implements WorkQuantStrategy
 		spt.addDrawInst(new DrawingInstruction(21, 21, 6, 6));
 		spt.addDrawInst(new DrawingInstruction(23, 22, 8, 8));
 		splatters.add(spt);
+		
 		return;
 	}
 }

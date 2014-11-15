@@ -6,6 +6,7 @@ public class DrawingInstruction
 	private int y;
 	private int width;
 	private int height;
+	private String sha;
 	private double direction;
 	//drawing information about an elipse
 	public DrawingInstruction(){
@@ -16,6 +17,7 @@ public class DrawingInstruction
 		this.y = y;
 		this.width = width;
 		this.height = height;
+		this.sha = "";
 		this.direction = 0.0;
 	}
 	
@@ -26,7 +28,7 @@ public class DrawingInstruction
 	}
 		
 	public String toString(){
-		return "x:"+this.x+"\ty:"+this.y+"\tw:"+this.width+"\th:"+this.height+"d:"+this.direction;
+		return "x:"+this.x+"\ty:"+this.y+"\tw:"+this.width+"\th:"+this.height+"d:"+this.direction+"sha:"+this.sha;
 	}
 		
 	public void setx(int x){
@@ -67,5 +69,13 @@ public class DrawingInstruction
 
 	public double getDirection(){
 		return this.direction;
+	}
+	
+	public void setSha(String sha){
+		this.sha = sha;
+	}
+
+	public String getSha(){
+		return this.sha;
 	}
 }

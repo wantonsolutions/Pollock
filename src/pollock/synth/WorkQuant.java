@@ -29,7 +29,7 @@ public WorkQuant(ArrayList<Splatter> splatters, FileCommitData fileCommits, Cont
 			imp = new WorkQuantStub();
 			break;
 		case V1:
-			System.out.println("look its nothing");
+			imp = new WorkQuantV1();
 			break;
 		default:
 			System.out.println("strategy not implementable");

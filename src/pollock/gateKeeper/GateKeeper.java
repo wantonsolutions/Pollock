@@ -38,7 +38,7 @@ public class GateKeeper {
 		setFileCommitCleaner(FileCommitCleanerImp.V1);
 		setFilenameCleaner(FilenameCleanerImp.STUB);
 		setSplatVector(SplatVectorImp.V1);
-		setWorkQuant(WorkQuantImp.STUB);
+		setWorkQuant(WorkQuantImp.V1);
 
 	}
 
