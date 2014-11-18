@@ -37,7 +37,7 @@ public class SplatVectorV1 implements SplatVectorStrategy
 		}
 	}
 	/*move coeff imporant*/
-	private final double coeff = 2.0;	
+	private final double coeff = 6.0;	
 	private ArrayList<UserVec> uv = new ArrayList<UserVec>();
 	private FileCommitData fcd;
 	private ContributorCommitData ccd;

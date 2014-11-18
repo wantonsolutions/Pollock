@@ -11,7 +11,7 @@ if ARGV.length < 1
 	puts "using default repo wantonsolutions/Pollock"
 	repository = 'wantonsolutions/Pollock'
 else
-	puts "attempting to use repo:u" + ARGV[0]
+	puts "attempting to use repo:\t" + ARGV[0]
 	repository = ARGV[0]
 end
 

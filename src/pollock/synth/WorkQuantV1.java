@@ -9,7 +9,11 @@ public class WorkQuantV1 implements WorkQuantStrategy
 	private FileCommitData fcd;
 	private ContributorCommitData ccd;
 	private ArrayList<Splatter> splatters;
-	private final double wcoeff = 0.2;
+	private final double wcoeff = 100;
+	private final double phi = 1.618033;
+	private final double pi = 3.14;
+	
+	private final double exp = 1.0/pi;
 	
 	public void quantifyCommits(ArrayList<Splatter> splatters, FileCommitData fileCommits, ContributorCommitData contributorCommits ){
 		System.out.println("WorkQuantV1");
@@ -39,8 +43,8 @@ public class WorkQuantV1 implements WorkQuantStrategy
 					}while(!sha.equals(fcd.get().get(j).getCommit()) && k<splatters.get(i).getDrawInfo().size());
 					k--;
 					//set width and height
-					double width = fcd.get().get(j).getCommitWork() * wcoeff; 
-					double height = fcd.get().get(j).getCommitWork() * wcoeff; 
+					double width = Math.pow((fcd.get().get(j).getCommitWork() * wcoeff + 1),exp); 
+					double height = Math.pow((fcd.get().get(j).getCommitWork() * wcoeff + 1),exp); 
 					splatters.get(i).getDrawInfo().get(k).setWidth((int)Math.round(width));
 					splatters.get(i).getDrawInfo().get(k).setHeight((int)Math.round(height));
 					//System.out.println(splatters.get(i).getDrawInfo().get(k).toString());
