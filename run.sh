@@ -1,8 +1,23 @@
 #!/bin/bash
 args=("$@")
 repo=${args[0]}
+uname=${args[1]}
+pword=${args[2]}
 pDir="../processing-2.2.1"
-#ruby apiQ.rb
+
+tempdir=`fgrep pdir .conf`
+
+#OIFS="$IFS"
+#IFS=':' 
+#read -ra ADDR <<< "$tempdir"
+#IFS="$OIFS"
+#for i in "${ADDR[@]}"; do
+#	echo "${ADDR[i]}"
+#	pDir="${ADDR[i]}"
+#done
+
+
+#ruby apiQ.rb $repo $uname $pword
 #make a repo to clone into
 
 #mkdir tempDir

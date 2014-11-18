@@ -36,6 +36,7 @@ public class SplatVectorV1 implements SplatVectorStrategy
 			return this.radians;
 		}
 	}
+	/*move coeff imporant*/
 	private final double coeff = 2.0;	
 	private ArrayList<UserVec> uv = new ArrayList<UserVec>();
 	private FileCommitData fcd;

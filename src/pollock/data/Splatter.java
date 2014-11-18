@@ -9,6 +9,7 @@ public class Splatter
 	private String filename;		//the name of the file the splatter represents
 	private int xStart;			//The starting x coordinate for this splatter
 	private int yStart;			//The starting y coordinate for this splatter
+	private int[] colour = new int[3];			//the color of the splatter
 	private ArrayList<ContributorCommit> cComs;	//an arraylist of all the contirbutor commits to the splatter
 	private ArrayList<FileCommit> fComs;	//a list of the commits made to the file represented by the splatter	
 	private ArrayList<DrawingInstruction> drawInfo;
@@ -42,6 +43,8 @@ public class Splatter
 	//outputs the set of drawing instructions as a set of strings catered to a drawing instruction for processing 2
 	public String draw(){
 		String output = "";
+		//set the color for the splatter
+		output = this.colour[0]+"\t"+this.colour[1]+"\t"+this.colour[2]+"\n";
 		for(int i =0;i<drawInfo.size();i++){
 			output = output + drawInfo.get(i).draw();
 		}
@@ -80,7 +83,28 @@ public class Splatter
 	public int getYStart(){
 		return yStart;
 	}
-		
+
+	/*colour seting function*/
+	public void setColour(int r, int g, int b){
+		if(r<0 || r>255){
+			this.colour[0] = 0;
+		}
+		else{
+			this.colour[0] = r;
+		}
+		if(g<0 || g>255){
+			this.colour[1] = 0;
+		}
+		else{
+			this.colour[1] = g;
+		}
+		if(b<0 || b>255){
+			this.colour[2] = 0;
+		}
+		else{
+			this.colour[2] = b;
+		}
+	}
 
 }
 

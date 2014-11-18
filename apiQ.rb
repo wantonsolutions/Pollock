@@ -2,19 +2,42 @@
 
 require 'octokit'
 
-#client = Octokit::Client.new (:access_token =>"11a1d0e1ab571cd2404dac0adc3f408e1547df2d")
+usage = "Usage: \truby apiQ.rb <repo name> <github username> <github password>\nex)\truby apiQ.rb wantonsolutions/Pollock username password\n\n"
 
-#user = client.user
-#user.login
+#determine repo
+if ARGV.length < 1
+	puts "please specify a repository\n"
+	puts usage
+	puts "using default repo wantonsolutions/Pollock"
+	repository = 'wantonsolutions/Pollock'
+else
+	puts "attempting to use repo:u" + ARGV[0]
+	repository = ARGV[0]
+end
 
-repository = 'wantonsolutions/Pollock'
+#setup user login
+if ARGV.length == 3
+	puts "logging in"
+	client = Octokit::Client.new \
+		:login =>ARGV[1],
+		:password =>ARGV[2]
+	user = client.user
+	user.login
+else
+	puts "Insufficiant login info using limited requester"
+	puts usage
+	client = Octokit
+end
+
+
 output1 = File.open("UserCommits.txt","w")
 output2 = File.open("FileCommits.txt","w")
-sha = 0
+sha = 0 
 #get user commits
 
-Octokit.auto_paginate = true;
-commits = Octokit.commits repository
+
+client.auto_paginate = true;
+commits = client.commits repository
 commits.each do|commit| 
 	output1 << commit.sha 
 	output1 << ","
@@ -23,7 +46,7 @@ commits.each do|commit|
 	output1 << commit.commit.committer.date
 	output1 << "\n"
 	
-	icommit = Octokit.commit(repository, commit.sha)
+	icommit = client.commit(repository, commit.sha)
 	files = icommit.files
 	files.each do|file|
 		output2 << icommit.sha

@@ -9,9 +9,9 @@ String[] lines;
 int index = 0;
 
 void setup() {
-  size(500, 500);
+  size(1000, 1000);
   background(0);
-  stroke(204,102,0);
+  stroke(55,55,0);
   frameRate(25);
   lines = loadStrings("out.txt");
 }
@@ -29,6 +29,10 @@ void draw() {
       int y = int(pieces[1]) * 2;
       point(x, y);
     }
+    else if(pieces.length == 3){
+	stroke(int(pieces[0]),int(pieces[1]),int(pieces[2]));
+	fill(int(pieces[0]),int(pieces[1]),int(pieces[2]));
+    }
     else if(pieces.length == 4){
       int x = int(pieces[0]) * 2;
       int y = int(pieces[1]) * 2;
@@ -36,6 +40,7 @@ void draw() {
       int h = int(pieces[3]) * 2;
       ellipse(x,y,w,h);
     }
+	//change the color
     // Go to the next line for the next run through draw()
     index = index + 1;
   }

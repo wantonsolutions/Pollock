@@ -11,8 +11,9 @@ import src.pollock.synth.*;
 
 public class Pollock
 {
-	private static int WINDOW_HEIGHT = 300;
-	private static int WINDOW_WIDTH = 300;
+	private static int WINDOW_HEIGHT = 500;
+	private static int WINDOW_WIDTH = 500;
+	private static int COLOR_MAX = 255;
 	
 	public static void main(String []args){
 		//start by making some fake filenames eventually read from the command line
@@ -74,10 +75,17 @@ public class Pollock
 		Random gen = new Random();
 		int x;
 		int y;
+		int r;
+		int g;
+		int b;
 		for(int i=0; i<names.size();i++){
 			x = Math.abs(gen.nextInt() % WINDOW_WIDTH);
 			y = Math.abs(gen.nextInt() % WINDOW_HEIGHT);
+			r = Math.abs(gen.nextInt() % COLOR_MAX);
+			g = Math.abs(gen.nextInt() % COLOR_MAX);
+			b = Math.abs(gen.nextInt() % COLOR_MAX);
 			splatters.add(new Splatter(names.get(i),x,y));
+			splatters.get(i).setColour(r,g,b);
 		}	
 	}
 
