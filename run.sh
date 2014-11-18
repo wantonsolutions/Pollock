@@ -17,18 +17,8 @@ tempdir=`fgrep pdir .conf`
 #done
 
 
-#ruby apiQ.rb $repo $uname $pword
+ruby apiQ.rb $repo $uname $pword
 #make a repo to clone into
-
-#mkdir tempDir
-#cd tempDir
-#git clone $repo
-#repoName=`ls`
-#cd ..
-#echo $repoName
-
-#mkdir sgout
-#gitstats tempDir/$repoName ./sgout
 
 ant run
 
@@ -43,7 +33,9 @@ cd $pDir
 
 cd ../pollock
 
-#ant distclean
-#yes | rm -r sgout
-#yes | rm -r tempDir
-#yes | rm *.txt
+ant distclean
+yes | rm FileCommits.txt
+yes | rm UserCommits.txt
+yes | rm -r sgout
+yes | rm -r tempDir
+yes | rm *.txt
