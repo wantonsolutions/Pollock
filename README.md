@@ -1,7 +1,6 @@
-Pollock
-=======
+#Pollock
+
 Abstract git repository analyzer and renderer
-# Pollock
 ![logo][logo]
 [logo]:http://i57.tinypic.com/2j50wg2.png
 
