@@ -11,11 +11,13 @@ To produce a highly abstract rendering of a github reposisity which captures a l
 System Dependencies
 -------------------
 Pollock makes use of :
-  *Java 7
-  *Processing 2.2.1
-  *Ruby 2.1.5 (earlier version will most certianly work)
-  *Octokit.rb (a ruby gem)
-  
+<ul>
+<li>Java 7</li>
+<li>Processing 2.2.1</li>
+<li>Ruby 2.1.5(earlier version will most certianly work)</li>
+<li>Octokit.rb (a ruby gem)</li>
+</ul>
+
 System Reqirements
 ------------------
 Pollock will run on Windows, OSX and Linux. However it's automated execution script is only build for a linux enviornment with bash
